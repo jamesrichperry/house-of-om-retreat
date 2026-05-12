@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everything You Need After Your Retreat | House of Om</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#f5f0e8;
+  --cream-dark:#ede5d8;
+  --cream-mid:#f0e9de;
+  --dark:#1a1728;
+  --indigo:#150e70;
+  --indigo-mid:#1e1599;
+  --indigo-light:#2d23c4;
+  --gold:#c9a76b;
+  --gold-light:#e0c38a;
+  --gold-pale:#f0e4c8;
+  --sage:#6b9e8e;
+  --sage-light:#8abfaf;
+  --sage-pale:#c8dfd9;
+  --white:#ffffff;
+  --text-mid:#4a4860;
+  --text-light:#7a789a;
+  --card-bg:rgba(255,255,255,0.72);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;cursor:none}
+
+/* ─── CURSOR ─── */
+#cur{position:fixed;width:9px;height:9px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .3s;mix-blend-mode:multiply}
+#cur-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(201,167,107,.55);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .38s cubic-bezier(.25,.46,.45,.94),height .38s,opacity .3s,border-color .3s}
+body.ch #cur{width:5px;height:5px}
+body.ch #cur-ring{width:54px;height:54px;opacity:.8;border-color:var(--gold)}
+
+/* ─── SCROLL PROGRESS ─── */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--indigo),var(--gold));z-index:9997;transform-origin:left;transform:scaleX(0);transition:transform .1s linear}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:24px 52px;transition:background .5s,backdrop-filter .5s,padding .4s}
+nav.sc{background:rgba(21,14,112,.94);backdrop-filter:blur(16px);padding:14px 52px}
+.nav-logo img{height:32px;filter:brightness(0) invert(1);opacity:.9;transition:opacity .3s}
+.nav-logo img:hover{opacity:1}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;position:relative;padding-bottom:3px;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .38s cubic-bezier(.25,.46,.45,.94)}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{border:1px solid rgba(255,255,255,.3) !important;border-radius:2px;padding:6px 16px !important;transition:border-color .3s,background .3s !important}
+.nav-cta::after{display:none !important}
+.nav-cta:hover{background:rgba(255,255,255,.1) !important;border-color:rgba(255,255,255,.7) !important}
+
+/* ─── HERO ─── */
+#hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0c0a2e 0%,#150e70 35%,#1a3a5c 65%,#0d2a1a 100%);overflow:hidden}
+.hero-bg::before{content:'';position:absolute;inset:0;background:url('https://static.tildacdn.one/tild6262-3532-4837-b239-626132633333/SKY09614_1-min.jpg') center/cover no-repeat;opacity:.55;transform:scale(1.05);transition:transform 8s ease}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(21,14,112,.5) 0%,rgba(10,8,30,.4) 40%,rgba(10,8,30,.75) 100%)}
+.hero-grain{position:absolute;inset:0;z-index:2;opacity:.12;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+.hero-content{position:relative;z-index:3;padding:0 24px;max-width:900px}
+.hero-eyebrow{font-size:8px;letter-spacing:.55em;text-transform:uppercase;color:rgba(201,167,107,.8);margin-bottom:32px;opacity:0;animation:fadeUp .8s .6s ease forwards}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6.5vw,88px);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:12px;letter-spacing:.04em}
+.hero-title-line{display:block;overflow:hidden}
+.hero-title-inner{display:block;transform:translateY(110%);opacity:0;animation:slideUp .95s cubic-bezier(.22,1,.36,1) forwards}
+.hero-title-line:nth-child(1) .hero-title-inner{animation-delay:.8s}
+.hero-title-line:nth-child(2) .hero-title-inner{animation-delay:.96s}
+.hero-title-line:nth-child(3) .hero-title-inner{animation-delay:1.12s}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-divider{width:0;height:1px;background:rgba(201,167,107,.4);margin:28px auto;animation:expandLine 1s 1.5s ease forwards}
+@keyframes expandLine{from{width:0}to{width:72px}}
+.hero-sub{font-size:13px;line-height:1.8;color:rgba(255,255,255,.55);font-weight:300;max-width:520px;margin:0 auto 44px;opacity:0;animation:fadeUp .8s 1.7s ease forwards;letter-spacing:.03em}
+.hero-scroll{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s 2s ease forwards;cursor:pointer}
+.hero-scroll span{font-size:8px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(201,167,107,.6),transparent);animation:scrollPulse 2s 2.5s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:.5;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:1}
+.hero-orb-1{width:500px;height:500px;background:rgba(21,14,112,.5);top:-100px;left:-150px;animation:orbFloat 12s ease-in-out infinite}
+.hero-orb-2{width:350px;height:350px;background:rgba(107,158,142,.25);bottom:-80px;right:-100px;animation:orbFloat 15s 3s ease-in-out infinite reverse}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+
+/* ─── KEYFRAMES ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{to{transform:translateY(0);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ─── SCROLL REVEAL ─── */
+[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+[data-reveal="fade"]{transform:none}
+[data-reveal="left"]{transform:translateX(-36px)}
+[data-reveal="right"]{transform:translateX(36px)}
+[data-reveal="scale"]{transform:scale(.94)}
+[data-reveal].revealed{opacity:1;transform:none !important}
+[data-delay="1"]{transition-delay:.1s}
+[data-delay="2"]{transition-delay:.2s}
+[data-delay="3"]{transition-delay:.3s}
+[data-delay="4"]{transition-delay:.4s}
+[data-delay="5"]{transition-delay:.5s}
+[data-delay="6"]{transition-delay:.6s}
+[data-delay="7"]{transition-delay:.7s}
+[data-delay="8"]{transition-delay:.8s}
+
+/* ─── SECTION SHARED ─── */
+section{padding:100px 52px}
+.section-eyebrow{font-size:8px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,62px);font-weight:300;line-height:1.1;color:var(--dark)}
+.section-title em{font-style:italic;color:var(--indigo)}
+.section-body{font-size:13px;line-height:1.9;color:var(--text-mid);font-weight:300;max-width:560px}
+.divider-line{width:52px;height:1px;background:var(--gold);opacity:.5;margin:24px 0}
+
+/* ─── INTRO ─── */
+#intro{background:var(--cream);text-align:center;padding:110px 52px}
+.intro-inner{max-width:760px;margin:0 auto}
+.intro-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;font-style:italic;line-height:1.3;color:var(--indigo);margin-bottom:32px}
+.intro-quote::before{content:'\201C';font-size:1.6em;line-height:0;vertical-align:-.3em;color:var(--gold);opacity:.6;margin-right:4px}
+.intro-quote::after{content:'\201D';font-size:1.6em;line-height:0;vertical-align:-.3em;color:var(--gold);opacity:.6;margin-left:4px}
+.intro-body{font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;margin:0 auto;max-width:540px}
+.intro-divider{width:52px;height:1px;background:var(--gold);opacity:.4;margin:36px auto}
+
+/* ─── PRACTICES ─── */
+#practices{background:var(--white);padding:100px 52px}
+.practices-header{text-align:center;margin-bottom:72px}
+.practices-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;max-width:1180px;margin:0 auto}
+.practice-card{background:var(--cream);padding:40px 36px;position:relative;overflow:hidden;transition:background .4s,transform .4s;cursor:default}
+.practice-card::before{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--indigo),var(--sage));transition:width .5s cubic-bezier(.25,.46,.45,.94)}
+.practice-card:hover{background:var(--cream-dark);transform:translateY(-3px)}
+.practice-card:hover::before{width:100%}
+.practice-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(21,14,112,.08);line-height:1;margin-bottom:16px;transition:color .3s}
+.practice-card:hover .practice-num{color:rgba(21,14,112,.14)}
+.practice-icon{width:36px;height:36px;margin-bottom:18px}
+.practice-icon svg{width:100%;height:100%}
+.practice-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);margin-bottom:10px;letter-spacing:.02em}
+.practice-desc{font-size:11.5px;line-height:1.85;color:var(--text-mid);font-weight:300}
+.practice-tag{display:inline-block;margin-top:16px;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);border:1px solid var(--sage-pale);padding:4px 10px;border-radius:2px}
+
+/* ─── DEEP PRACTICE ─── */
+#deep-practice{padding:0;overflow:hidden}
+.dp-grid{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.dp-image{position:relative;overflow:hidden;min-height:480px}
+.dp-image-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c2a1a 0%,#1a4a30 40%,#2d6a4a 100%);transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.dp-image-inner::before{content:'';position:absolute;inset:0;background:url('https://static.tildacdn.one/tild3266-6336-4464-b639-653030613932/3D8A2157_1.jpg') center/cover no-repeat;opacity:.7;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.dp-image:hover .dp-image-inner{transform:scale(1.04)}
+.dp-image:hover .dp-image-inner::before{transform:scale(1.04)}
+.dp-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 50%,rgba(245,240,232,.15) 100%);z-index:1}
+.dp-content{background:var(--indigo);padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.dp-content .section-eyebrow{color:rgba(201,167,107,.7)}
+.dp-content .section-title{color:var(--white)}
+.dp-content .section-title em{color:var(--gold-light)}
+.dp-content .section-body{color:rgba(255,255,255,.6);max-width:none;margin:24px 0 36px}
+.dp-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.dp-list li{display:flex;align-items:flex-start;gap:14px;color:rgba(255,255,255,.75);font-size:12px;line-height:1.7;font-weight:300}
+.dp-list li::before{content:'';width:18px;height:1px;background:var(--gold);margin-top:9px;flex-shrink:0}
+
+/* ─── RESOURCES ─── */
+#resources{background:var(--cream);padding:100px 52px}
+.resources-header{text-align:center;margin-bottom:16px}
+.tab-nav{display:flex;justify-content:center;gap:0;margin:40px 0 56px;border-bottom:1px solid rgba(21,14,112,.1)}
+.tab-btn{font-size:9px;letter-spacing:.3em;text-transform:uppercase;padding:12px 28px;color:var(--text-light);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;font-family:'Montserrat',sans-serif;transition:color .3s,border-color .3s}
+.tab-btn.active{color:var(--indigo);border-bottom-color:var(--indigo)}
+.tab-btn:hover{color:var(--indigo)}
+.tab-panel{display:none;animation:fadeIn .5s ease}
+.tab-panel.active{display:block}
+.resources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;max-width:1080px;margin:0 auto}
+.resource-card{background:var(--white);padding:28px 28px 24px;border-radius:2px;position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s;box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.resource-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(21,14,112,.1)}
+.resource-card-accent{position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(to bottom,var(--indigo),var(--sage));transition:height .4s cubic-bezier(.25,.46,.45,.94)}
+.resource-card:hover .resource-card-accent{height:100%}
+.resource-category{font-size:7.5px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.resource-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--dark);margin-bottom:6px;line-height:1.25}
+.resource-author{font-size:10.5px;color:var(--text-light);margin-bottom:12px;font-weight:300}
+.resource-desc{font-size:11px;line-height:1.8;color:var(--text-mid);font-weight:300}
+.resource-badge{display:inline-block;margin-top:14px;font-size:7.5px;letter-spacing:.25em;text-transform:uppercase;padding:3px 9px;border-radius:2px}
+.badge-free{background:rgba(107,158,142,.12);color:var(--sage)}
+.badge-book{background:rgba(21,14,112,.07);color:var(--indigo)}
+.badge-app{background:rgba(201,167,107,.15);color:var(--gold)}
+
+/* ─── LOCATIONS ─── */
+#locations{background:var(--dark);padding:100px 0;overflow:hidden}
+.locations-header{text-align:center;padding:0 52px;margin-bottom:60px}
+.locations-header .section-title{color:var(--white)}
+.locations-header .section-eyebrow{color:rgba(201,167,107,.7)}
+.locations-header .section-body{color:rgba(255,255,255,.5);margin:16px auto 0;max-width:500px;text-align:center}
+.locations-track-wrap{overflow-x:auto;padding:0 52px 32px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--gold) rgba(255,255,255,.05)}
+.locations-track-wrap::-webkit-scrollbar{height:2px}
+.locations-track-wrap::-webkit-scrollbar-track{background:rgba(255,255,255,.05)}
+.locations-track-wrap::-webkit-scrollbar-thumb{background:var(--gold);opacity:.5}
+.locations-track{display:flex;gap:20px;width:max-content}
+.location-card{width:320px;height:420px;position:relative;overflow:hidden;border-radius:2px;flex-shrink:0;cursor:pointer}
+.location-card-bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.location-card-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,30,.9) 0%,rgba(10,8,30,.3) 60%,transparent 100%);transition:background .4s}
+.location-card:hover .location-card-bg{transform:scale(1.06)}
+.location-card:hover .location-card-bg::after{background:linear-gradient(to top,rgba(21,14,112,.9) 0%,rgba(21,14,112,.35) 60%,transparent 100%)}
+.lc-bali .location-card-bg{background:linear-gradient(135deg,#0d2a1a,#1a4530);background-image:url('https://static.tildacdn.one/tild6261-6363-4839-b634-373164373836/SKY09923.jpg');background-size:cover;background-position:center}
+.lc-india .location-card-bg{background:linear-gradient(135deg,#2a1a0d,#4a3015);background-image:url('https://static.tildacdn.one/tild6235-3238-4034-b832-303363336435/shutterstock_7131866.jpg');background-size:cover;background-position:center}
+.lc-thailand .location-card-bg{background:linear-gradient(135deg,#0d1a2a,#153045);background-image:url('https://static.tildacdn.one/tild3161-3633-4464-a662-633832613432/0D552D7F-C542-4B1E-B.jpeg');background-size:cover;background-position:center}
+.lc-ubud .location-card-bg{background:linear-gradient(135deg,#1a2a0d,#2a4015);background-image:url('https://static.tildacdn.one/tild3863-3364-4237-b138-613335616430/pel.jpg');background-size:cover;background-position:center}
+.lc-pelaga .location-card-bg{background:linear-gradient(135deg,#150e70,#2a1f9e);background-image:url('https://static.tildacdn.one/tild3437-3139-4862-b930-643936313330/melati.jpg');background-size:cover;background-position:center}
+.lc-mansion .location-card-bg{background:linear-gradient(135deg,#2a1a0d,#4a3820);background-image:url('https://static.tildacdn.one/tild6163-6161-4464-b961-633565393933/mans.jpg');background-size:cover;background-position:center}
+.lc-amer .location-card-bg{background:linear-gradient(135deg,#0d2a1a,#254530);background-image:url('https://static.tildacdn.one/tild6633-6137-4438-a230-333139333832/amer.jpg');background-size:cover;background-position:center}
+.location-content{position:absolute;bottom:0;left:0;right:0;padding:28px;z-index:1}
+.location-region{font-size:7.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;opacity:.85}
+.location-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);line-height:1;margin-bottom:8px}
+.location-desc{font-size:10.5px;line-height:1.7;color:rgba(255,255,255,.55);font-weight:300;transform:translateY(8px);opacity:0;transition:transform .4s,opacity .4s}
+.location-card:hover .location-desc{transform:translateY(0);opacity:1}
+.location-return{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(6px);transition:opacity .4s .05s,transform .4s .05s}
+.location-card:hover .location-return{opacity:1;transform:translateY(0)}
+.location-return svg{width:14px;height:14px;transition:transform .3s}
+.location-card:hover .location-return svg{transform:translateX(4px)}
+
+/* ─── COMMUNITY ─── */
+#community{background:linear-gradient(135deg,var(--cream) 0%,var(--sage-pale) 100%);padding:100px 52px;text-align:center}
+.community-inner{max-width:700px;margin:0 auto}
+.community-icon{width:52px;height:52px;margin:0 auto 24px;opacity:.5}
+.community-icon svg{width:100%;height:100%;stroke:var(--indigo)}
+.community-body{font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;margin:20px 0 36px}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border:1px solid rgba(21,14,112,.3);color:var(--indigo);text-decoration:none;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;font-family:'Montserrat',sans-serif;transition:background .3s,border-color .3s,color .3s}
+.btn-outline:hover{background:var(--indigo);border-color:var(--indigo);color:var(--white)}
+
+/* ─── EMAIL SIGNUP ─── */
+#signup{position:relative;padding:120px 52px;overflow:hidden;text-align:center}
+.signup-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0c0a2e 0%,#150e70 45%,#0d2a3a 100%)}
+.signup-bg::before{content:'';position:absolute;inset:0;background:url('https://static.tildacdn.one/tild3866-3539-4864-a464-343461666631/_DSC9527.JPG') center/cover no-repeat;opacity:.3;background-position:center 30%}
+.signup-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(21,14,112,.6),rgba(21,14,112,.8))}
+.signup-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(107,158,142,.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;animation:orbPulse 6s ease-in-out infinite}
+@keyframes orbPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.12)}}
+.signup-content{position:relative;z-index:2;max-width:560px;margin:0 auto}
+.signup-eyebrow{font-size:8px;letter-spacing:.5em;text-transform:uppercase;color:rgba(201,167,107,.7);margin-bottom:20px;display:block}
+.signup-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,62px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:16px}
+.signup-title em{font-style:italic;color:var(--gold-light)}
+.signup-body{font-size:13px;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;margin:0 auto 44px;max-width:400px}
+.signup-form{display:flex;gap:0;max-width:460px;margin:0 auto;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.signup-input{flex:1;padding:18px 24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-right:none;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;outline:none;transition:background .3s,border-color .3s;border-radius:0}
+.signup-input::placeholder{color:rgba(255,255,255,.3)}
+.signup-input:focus{background:rgba(255,255,255,.12);border-color:rgba(201,167,107,.5)}
+.signup-btn{padding:18px 28px;background:var(--gold);border:1px solid var(--gold);color:var(--dark);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background .3s,border-color .3s;white-space:nowrap}
+.signup-btn:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.signup-note{font-size:9.5px;color:rgba(255,255,255,.25);margin-top:16px;font-weight:300;letter-spacing:.04em}
+.signup-dots{display:flex;justify-content:center;gap:20px;margin-top:48px;opacity:.35}
+.signup-dot{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--dark);padding:52px 52px 36px;display:flex;flex-direction:column;align-items:center;gap:28px}
+.footer-logo img{height:28px;filter:brightness(0) invert(1);opacity:.55}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.footer-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;transition:color .3s}
+.footer-links a:hover{color:rgba(255,255,255,.7)}
+.footer-divider{width:1px;height:32px;background:rgba(255,255,255,.08)}
+.footer-socials{display:flex;gap:18px}
+.footer-socials a{color:rgba(255,255,255,.25);transition:color .3s}
+.footer-socials a:hover{color:var(--gold)}
+.footer-socials svg{width:16px;height:16px;stroke:currentColor;fill:none}
+.footer-copy{font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.06em;font-weight:300}
+.footer-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:center}
+
+/* ─── MOBILE ─── */
+@media(max-width:900px){
+  nav{padding:18px 28px}
+  nav.sc{padding:12px 28px}
+  .nav-links{display:none}
+  section{padding:72px 28px}
+  #hero .hero-content{padding:0 20px}
+  .dp-grid{grid-template-columns:1fr}
+  .dp-content{padding:52px 36px}
+  #locations{padding:72px 0}
+  .locations-track-wrap{padding:0 28px 28px}
+  .location-card{width:270px;height:360px}
+  .signup-form{flex-direction:column}
+  .signup-input{border-right:1px solid rgba(255,255,255,.12);border-bottom:none}
+  .signup-input:focus{border-color:rgba(201,167,107,.5)}
+  footer{padding:40px 28px 28px}
+  .footer-divider{display:none}
+}
+
+/* ─── PHOTO MOSAIC ─── */
+#mosaic{padding:0;overflow:hidden;background:var(--dark)}
+.mosaic-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:310px 270px;gap:3px}
+.mosaic-item{position:relative;overflow:hidden;background:var(--dark)}
+.mosaic-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.25,.46,.45,.94),opacity .7s ease;opacity:.9}
+.mosaic-item:hover img{transform:scale(1.06);opacity:1}
+.mosaic-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(21,14,112,.3) 100%);pointer-events:none;opacity:0;transition:opacity .4s}
+.mosaic-item:hover::after{opacity:1}
+.mosaic-tall{grid-row:1/3}
+.mosaic-caption{position:absolute;bottom:16px;left:16px;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;font-family:'Montserrat',sans-serif;font-weight:400}
+.mosaic-item:hover .mosaic-caption{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  .mosaic-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+  .mosaic-tall{grid-row:span 1}
+  .mosaic-item{min-height:200px}
+}
+
+/* ─── SUCCESS STATE ─── */
+.signup-success{display:none;text-align:center}
+.signup-success.show{display:block;animation:fadeUp .6s ease}
+.signup-success p{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:var(--white);font-weight:300}
+.signup-success span{display:block;font-size:11px;color:rgba(255,255,255,.45);margin-top:8px;letter-spacing:.06em;font-family:'Montserrat',sans-serif;font-weight:300}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="https://houseofom.com" class="nav-logo" target="_blank" rel="noopener">
+    <img src="https://static.tildacdn.one/tild3462-6433-4134-a363-353732643237/79cf5e4bf42ae78236a2.svg" alt="House of Om" onerror="this.style.display='none';this.nextSibling.style.display='block'">
+    <span style="display:none;color:rgba(255,255,255,.85);font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;letter-spacing:.18em">HOUSE OF OM</span>
+  </a>
+  <div class="nav-links">
+    <a href="#practices">Practices</a>
+    <a href="#resources">Resources</a>
+    <a href="#locations">Locations</a>
+    <a href="#signup" class="nav-cta">Join Community</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">House of Om &nbsp;·&nbsp; Retreat Alumni</div>
+    <h1 class="hero-title">
+      <span class="hero-title-line"><span class="hero-title-inner">Everything You Need</span></span>
+      <span class="hero-title-line"><span class="hero-title-inner"><em>After Your Retreat</em></span></span>
+      <span class="hero-title-line"><span class="hero-title-inner">With House of Om</span></span>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Your transformation doesn't end when you leave. Carry the practice home &mdash; the stillness, the breath, the fire.</p>
+    <div class="hero-scroll" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
+      <span>Explore</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="intro-inner">
+    <blockquote class="intro-quote" data-reveal>You already have everything you need to start.</blockquote>
+    <div class="intro-divider" data-reveal data-delay="2"></div>
+    <p class="intro-body" data-reveal data-delay="3">
+      Leaving a retreat can feel like stepping off a mountain &mdash; the ground is different, the noise is louder, the pace relentless. This page is your bridge. A curated collection of practices, resources, and wisdom to help you sustain the depth you found, and carry it forward every day.
+    </p>
+  </div>
+</section>
+
+<!-- PHOTO MOSAIC -->
+<section id="mosaic">
+  <div class="mosaic-grid">
+    <div class="mosaic-item mosaic-tall">
+      <img src="https://static.tildacdn.one/tild3265-3066-4338-b166-663239396164/3D8A2349_1.jpg" alt="House of Om community Bali" loading="lazy">
+      <span class="mosaic-caption">Bali</span>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://static.tildacdn.one/tild3665-6561-4339-b434-383736613330/3.JPG" alt="Men and women yoga at Bali temple" loading="lazy">
+      <span class="mosaic-caption">Practice</span>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://static.tildacdn.one/tild6230-3034-4336-b935-656261626363/1_YTT_KPG-Thailand.jpg" alt="Yoga teacher training Koh Phangan" loading="lazy">
+      <span class="mosaic-caption">Thailand</span>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://static.tildacdn.one/tild3065-6132-4666-b838-333434663731/SKY00226.jpg" alt="Group yoga outdoors Bali" loading="lazy">
+      <span class="mosaic-caption">Community</span>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://static.tildacdn.one/tild6661-3435-4563-a334-393833643735/DSC06236.jpg" alt="Yoga practice at retreat" loading="lazy">
+      <span class="mosaic-caption">Asana</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICES -->
+<section id="practices">
+  <div class="practices-header">
+    <span class="section-eyebrow" data-reveal>Daily Rituals</span>
+    <h2 class="section-title" data-reveal data-delay="1">Your <em>daily practice</em> toolkit</h2>
+    <p style="font-size:13px;line-height:1.85;color:var(--text-mid);font-weight:300;max-width:480px;margin:16px auto 0" data-reveal data-delay="2">Eight mindfulness and yoga practices to anchor your day, however simple, however brief.</p>
+  </div>
+  <div class="practices-grid">
+
+    <div class="practice-card" data-reveal>
+      <div class="practice-num">01</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <circle cx="18" cy="18" r="14"/><circle cx="18" cy="18" r="6"/><line x1="18" y1="4" x2="18" y2="1"/><line x1="18" y1="31" x2="18" y2="35"/><line x1="4" y1="18" x2="1" y2="18"/><line x1="31" y1="18" x2="35" y2="18"/>
+      </svg>
+      <div class="practice-name">Morning Meditation</div>
+      <p class="practice-desc">Begin each day with 10–20 minutes of stillness before the world asks anything of you. Sit, breathe, and observe. Nothing else is required.</p>
+      <span class="practice-tag">Daily</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="1">
+      <div class="practice-num">02</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <path d="M18 6 C18 6 10 12 10 20 C10 24.4 13.6 28 18 28 C22.4 28 26 24.4 26 20 C26 12 18 6 18 6Z"/><line x1="18" y1="28" x2="18" y2="33"/><line x1="14" y1="31" x2="22" y2="31"/>
+      </svg>
+      <div class="practice-name">Pranayama Breathing</div>
+      <p class="practice-desc">Nadi Shodhana (alternate nostril) and Kapalbhati to balance your nervous system. Five minutes of conscious breath changes everything.</p>
+      <span class="practice-tag">Morning</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="2">
+      <div class="practice-num">03</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <circle cx="18" cy="10" r="4"/><path d="M12 18 L18 14 L24 18"/><path d="M8 26 L14 20 L18 26 L22 20 L28 26"/><line x1="18" y1="26" x2="18" y2="30"/>
+      </svg>
+      <div class="practice-name">Sun Salutation Flow</div>
+      <p class="practice-desc">3–6 rounds of Surya Namaskar every morning. A complete practice in itself &mdash; warmth, breath, strength, and devotion in twelve postures.</p>
+      <span class="practice-tag">Morning</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="3">
+      <div class="practice-num">04</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <path d="M8 12 L12 8 L16 12"/><line x1="12" y1="8" x2="12" y2="28"/><path d="M20 12 C20 12 28 14 28 20 C28 24 24 26 20 24"/><line x1="20" y1="16" x2="26" y2="18"/>
+      </svg>
+      <div class="practice-name">Gratitude Journaling</div>
+      <p class="practice-desc">Three things you are genuinely grateful for, written each morning. This small ritual rewires the mind toward abundance over time.</p>
+      <span class="practice-tag">Morning</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="4">
+      <div class="practice-num">05</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <ellipse cx="18" cy="24" rx="12" ry="5"/><path d="M10 24 C10 18 12 12 18 10 C24 12 26 18 26 24"/><line x1="18" y1="10" x2="18" y2="4"/><circle cx="18" cy="3" r="2"/>
+      </svg>
+      <div class="practice-name">Yin Yoga Practice</div>
+      <p class="practice-desc">30–60 minutes of long-held, floor-based postures to release deep connective tissue, calm the mind, and restore the body from within.</p>
+      <span class="practice-tag">Evening</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="5">
+      <div class="practice-num">06</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <path d="M4 28 Q8 20 12 24 Q16 28 20 20 Q24 12 28 18 Q30 22 32 18"/><circle cx="18" cy="14" r="2" fill="var(--sage-light)" stroke="none"/>
+      </svg>
+      <div class="practice-name">Walking Meditation</div>
+      <p class="practice-desc">Take one walk each day without your phone. Feel each footfall. Breathe the air. Let the practice live in motion, not only on the mat.</p>
+      <span class="practice-tag">Anytime</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="6">
+      <div class="practice-num">07</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <path d="M6 18 Q6 8 18 8 Q30 8 30 18 Q30 28 18 28 Q6 28 6 18Z"/><path d="M13 18 Q13 14 18 14 Q23 14 23 18"/><line x1="18" y1="22" x2="18" y2="25"/><circle cx="18" cy="27" r="1.5" fill="var(--sage-light)" stroke="none"/>
+      </svg>
+      <div class="practice-name">Yoga Nidra</div>
+      <p class="practice-desc">The yogic sleep. 30 minutes equals 4 hours of rest. A guided body scan and visualization practice for deep restoration and integration.</p>
+      <span class="practice-tag">Rest</span>
+    </div>
+
+    <div class="practice-card" data-reveal data-delay="7">
+      <div class="practice-num">08</div>
+      <svg class="practice-icon" viewBox="0 0 36 36" fill="none" stroke="var(--sage)" stroke-width="1.2">
+        <path d="M6 30 L6 8 L14 12 L22 8 L30 12 L30 30"/><line x1="14" y1="12" x2="14" y2="30"/><line x1="22" y1="8" x2="22" y2="30"/><line x1="6" y1="20" x2="30" y2="20"/>
+      </svg>
+      <div class="practice-name">Evening Reflection</div>
+      <p class="practice-desc">A five-minute body scan before bed. Where did you feel open today? Where did you contract? Awareness at rest is the whole practice.</p>
+      <span class="practice-tag">Evening</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEEP PRACTICE -->
+<section id="deep-practice">
+  <div class="dp-grid">
+    <div class="dp-image">
+      <div class="dp-image-inner"></div>
+      <div class="dp-overlay"></div>
+    </div>
+    <div class="dp-content">
+      <span class="section-eyebrow" data-reveal>Going Deeper</span>
+      <h2 class="section-title" data-reveal data-delay="1">Sustaining the <em>inner work</em></h2>
+      <p class="section-body" data-reveal data-delay="2">The retreat was the spark. These are the ways to tend the flame. Beyond the asana, the real practice begins when life gets uncomfortable.</p>
+      <ul class="dp-list">
+        <li data-reveal data-delay="3">Commit to a fixed time for practice &mdash; even 15 minutes changes the day</li>
+        <li data-reveal data-delay="4">Create a small dedicated space in your home. A mat, a candle, that is enough</li>
+        <li data-reveal data-delay="5">Join a local yoga community or studio for accountability and connection</li>
+        <li data-reveal data-delay="6">Return to the Yamas and Niyamas when life feels unclear or heavy</li>
+        <li data-reveal data-delay="7">Reach out to fellow House of Om alumni &mdash; your sangha travels with you</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CINEMATIC BAND -->
+<div style="height:460px;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('https://static.tildacdn.one/tild3132-6635-4966-b064-643232343734/3D8A1877.JPG') center 40%/cover no-repeat;transform:scale(1.04);transition:transform 8s ease" id="cinema-band"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(21,14,112,.25) 0%,rgba(10,8,20,.15) 50%,rgba(21,14,112,.35) 100%)"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px">
+    <div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,56px);font-weight:300;font-style:italic;color:rgba(255,255,255,.92);line-height:1.25;max-width:700px;text-shadow:0 2px 30px rgba(0,0,0,.4)">The practice is not something you do.<br>It is something you become.</p>
+      <div style="width:48px;height:1px;background:rgba(201,167,107,.6);margin:24px auto 0"></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="resources-header">
+    <span class="section-eyebrow" data-reveal>Curated For You</span>
+    <h2 class="section-title" data-reveal data-delay="1">Your <em>learning library</em></h2>
+    <p style="font-size:13px;line-height:1.85;color:var(--text-mid);font-weight:300;max-width:460px;margin:16px auto 0" data-reveal data-delay="2">Books, apps, and platforms chosen to deepen your understanding of yoga, breathwork, and mindfulness.</p>
+  </div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('books',this)">Books</button>
+    <button class="tab-btn" onclick="switchTab('apps',this)">Apps</button>
+    <button class="tab-btn" onclick="switchTab('platforms',this)">Platforms</button>
+  </div>
+
+  <!-- BOOKS -->
+  <div id="tab-books" class="tab-panel active">
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Philosophy</div>
+        <div class="resource-title">Light on Yoga</div>
+        <div class="resource-author">B.K.S. Iyengar</div>
+        <p class="resource-desc">The definitive guide to yoga asana, with over 200 poses photographed and described. A lifetime companion on the mat.</p>
+        <span class="resource-badge badge-book">Classic</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Ancient Texts</div>
+        <div class="resource-title">The Yoga Sutras of Patanjali</div>
+        <div class="resource-author">Trans. Swami Satchidananda</div>
+        <p class="resource-desc">The foundational text of yoga philosophy. 196 sutras that map the entire inner journey. Return to it again and again.</p>
+        <span class="resource-badge badge-book">Essential</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Mindfulness</div>
+        <div class="resource-title">When Things Fall Apart</div>
+        <div class="resource-author">Pema Chödrön</div>
+        <p class="resource-desc">Radical wisdom for when life doesn't go to plan. Pema Chödrön teaches how to lean into discomfort with courage and grace.</p>
+        <span class="resource-badge badge-book">Transformative</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Practice</div>
+        <div class="resource-title">The Heart of Yoga</div>
+        <div class="resource-author">T.K.V. Desikachar</div>
+        <p class="resource-desc">How to make yoga truly personal. Desikachar's father was Krishnamacharya. This book honours the teacher-student lineage.</p>
+        <span class="resource-badge badge-book">Practice</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Mindfulness</div>
+        <div class="resource-title">Wherever You Go, There You Are</div>
+        <div class="resource-author">Jon Kabat-Zinn</div>
+        <p class="resource-desc">Mindfulness meditation for ordinary life. Simple, direct, and remarkably useful for bringing retreat awareness into everyday moments.</p>
+        <span class="resource-badge badge-book">Practical</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Consciousness</div>
+        <div class="resource-title">The Power of Now</div>
+        <div class="resource-author">Eckhart Tolle</div>
+        <p class="resource-desc">A guide to spiritual awakening through present-moment awareness. Read slowly, and notice what shifts in you with each chapter.</p>
+        <span class="resource-badge badge-book">Awakening</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPS -->
+  <div id="tab-apps" class="tab-panel">
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Meditation</div>
+        <div class="resource-title">Insight Timer</div>
+        <div class="resource-author">iOS &amp; Android</div>
+        <p class="resource-desc">Over 180,000 free guided meditations, music, and teachings. The world's largest free meditation library. Start here.</p>
+        <span class="resource-badge badge-free">Free</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Yoga</div>
+        <div class="resource-title">Down Dog</div>
+        <div class="resource-author">iOS &amp; Android</div>
+        <p class="resource-desc">Fully customisable yoga practice. Choose your style, level, duration, and music. Generates a unique sequence every time.</p>
+        <span class="resource-badge badge-app">Freemium</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Breathwork</div>
+        <div class="resource-title">Breathwrk</div>
+        <div class="resource-author">iOS &amp; Android</div>
+        <p class="resource-desc">Science-backed breathwork exercises for energy, focus, stress relief, and sleep. The most accessible pranayama app available.</p>
+        <span class="resource-badge badge-app">Freemium</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Mindfulness</div>
+        <div class="resource-title">Waking Up</div>
+        <div class="resource-author">iOS &amp; Android</div>
+        <p class="resource-desc">Guided meditations, theory, and conversations with teachers and philosophers. Sam Harris's rigorous approach to inner science.</p>
+        <span class="resource-badge badge-app">Premium</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Yoga &amp; Meditation</div>
+        <div class="resource-title">Glo</div>
+        <div class="resource-author">iOS, Android &amp; Web</div>
+        <p class="resource-desc">Thousands of yoga and meditation classes from world-class teachers. Clean interface, excellent curation, all levels welcome.</p>
+        <span class="resource-badge badge-app">Subscription</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Sleep &amp; Rest</div>
+        <div class="resource-title">Calm</div>
+        <div class="resource-author">iOS &amp; Android</div>
+        <p class="resource-desc">Sleep stories, breathing programs, masterclasses, and guided body scans. Particularly useful for maintaining evening practice.</p>
+        <span class="resource-badge badge-app">Freemium</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS -->
+  <div id="tab-platforms" class="tab-panel">
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">YouTube</div>
+        <div class="resource-title">Yoga With Adriene</div>
+        <div class="resource-author">youtube.com/yogawithadriene</div>
+        <p class="resource-desc">The world's most-watched yoga channel. 500+ free classes for every body type, level, and mood. An accessible, loving teacher.</p>
+        <span class="resource-badge badge-free">Free</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Streaming</div>
+        <div class="resource-title">Gaia</div>
+        <div class="resource-author">gaia.com</div>
+        <p class="resource-desc">A conscious content platform with yoga, meditation, and spiritual documentary programming. The Netflix of mindful living.</p>
+        <span class="resource-badge badge-app">Subscription</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Online Classes</div>
+        <div class="resource-title">Alo Moves</div>
+        <div class="resource-author">alomoves.com</div>
+        <p class="resource-desc">Premium yoga, meditation, and fitness from world-class instructors. Exceptional production quality and a deep content library.</p>
+        <span class="resource-badge badge-app">Subscription</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Community</div>
+        <div class="resource-title">The Yoga Collective</div>
+        <div class="resource-author">theyogacollective.com</div>
+        <p class="resource-desc">A community-focused streaming platform with diverse teachers and styles. Particularly strong in yin, restorative, and vinyasa.</p>
+        <span class="resource-badge badge-app">Subscription</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Teacher Training</div>
+        <div class="resource-title">House of Om Online</div>
+        <div class="resource-author">houseofom.com</div>
+        <p class="resource-desc">Continue learning directly with the House of Om teachers. Online modules, workshops, and programs to deepen your practice.</p>
+        <span class="resource-badge badge-free">Official</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-accent"></div>
+        <div class="resource-category">Podcast</div>
+        <div class="resource-title">On Being with Krista Tippett</div>
+        <div class="resource-author">onbeing.org</div>
+        <p class="resource-desc">Conversations about the inner life of humanity. Wisdom from theologians, scientists, poets, and spiritual teachers. Free, essential.</p>
+        <span class="resource-badge badge-free">Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="locations-header">
+    <span class="section-eyebrow" data-reveal>Return to Practice</span>
+    <h2 class="section-title" data-reveal data-delay="1">Where to <em>come home</em></h2>
+    <p class="section-body" data-reveal data-delay="2">When you're ready to go deeper, the doors are open. Each location holds its own magic.</p>
+  </div>
+  <div class="locations-track-wrap">
+    <div class="locations-track">
+
+      <div class="location-card lc-bali">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">Indonesia</div>
+          <div class="location-name">Bali</div>
+          <p class="location-desc">The spiritual heart of House of Om. Jungle villas, rice terraces, and ceremonies that remind you why you came.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card lc-india">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">India</div>
+          <div class="location-name">Rishikesh</div>
+          <p class="location-desc">The birthplace of yoga. The Ganges at dawn, mountain air, and a depth of practice you find nowhere else on earth.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card lc-thailand">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">Thailand</div>
+          <div class="location-name">Koh Phangan</div>
+          <p class="location-desc">Island retreat surrounded by ocean, jungle, and the warmth of a deeply connected spiritual community.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card lc-ubud">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">Bali, Ubud</div>
+          <div class="location-name">Pelaga</div>
+          <p class="location-desc">A mountain sanctuary above the clouds. Cool mornings, forest walks, and a silence that heals something deep in you.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card lc-pelaga">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">Bali</div>
+          <div class="location-name">Melati</div>
+          <p class="location-desc">Riverside jungle studios, open-air salas, and the sound of water always near. Come for a week, stay for a lifetime.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card lc-mansion">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">Bali</div>
+          <div class="location-name">The Mansion</div>
+          <p class="location-desc">Colonial grandeur meets jungle serenity. A legendary Bali property that holds space for deep transformation and beauty.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card lc-amer">
+        <div class="location-card-bg"></div>
+        <div class="location-content">
+          <div class="location-region">Bali, Ubud</div>
+          <div class="location-name">Yoga Amertham</div>
+          <p class="location-desc">Sacred space for practice in the heart of Ubud. Where the energy of Bali's cultural centre holds your journey within.</p>
+          <div class="location-return">
+            Return here
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="community-inner">
+    <div class="community-icon" data-reveal>
+      <svg viewBox="0 0 52 52" fill="none" stroke="var(--indigo)" stroke-width="1.2">
+        <circle cx="20" cy="18" r="7"/><circle cx="36" cy="14" r="5"/><path d="M4 40 C4 32 11 26 20 26 C29 26 36 32 36 40"/><path d="M36 26 C42 26 48 30 48 36"/>
+      </svg>
+    </div>
+    <span class="section-eyebrow" style="display:block;text-align:center" data-reveal data-delay="1">Stay Connected</span>
+    <h2 class="section-title" style="text-align:center" data-reveal data-delay="2">Your <em>sangha</em> travels with you</h2>
+    <p class="community-body" data-reveal data-delay="3">
+      The practice is personal, but the path is shared. Your House of Om family &mdash; the teachers, the students, the community of over 1,700 certified graduates &mdash; is always just a message away. Your transformation has already begun.
+    </p>
+    <div data-reveal data-delay="4">
+      <a href="https://houseofom.com" target="_blank" rel="noopener" class="btn-outline">Visit House of Om</a>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section id="signup">
+  <div class="signup-bg"></div>
+  <div class="signup-orb"></div>
+  <div class="signup-content">
+    <span class="signup-eyebrow" data-reveal>Stay in the Practice</span>
+    <h2 class="signup-title" data-reveal data-delay="1">Receive <em>weekly wisdom</em><br>from our teachers</h2>
+    <p class="signup-body" data-reveal data-delay="2">Seasonal practices, guided meditations, retreat announcements, and teachings to keep the fire lit &mdash; delivered to your inbox.</p>
+    <div id="signup-form-wrap" data-reveal data-delay="3">
+      <form class="signup-form" onsubmit="handleSignup(event)">
+        <input class="signup-input" type="email" placeholder="Your email address" required autocomplete="email">
+        <button class="signup-btn" type="submit">Join Us</button>
+      </form>
+      <p class="signup-note">No noise, only nourishment. Unsubscribe at any time.</p>
+    </div>
+    <div id="signup-success" class="signup-success">
+      <p>Welcome to the circle.</p>
+      <span>We'll be in touch with practices to sustain your journey.</span>
+    </div>
+    <div class="signup-dots">
+      <div class="signup-dot"></div>
+      <div class="signup-dot"></div>
+      <div class="signup-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://houseofom.com" class="footer-logo" target="_blank" rel="noopener">
+    <img src="https://static.tildacdn.one/tild3462-6433-4134-a363-353732643237/79cf5e4bf42ae78236a2.svg" alt="House of Om" onerror="this.style.display='none';this.nextSibling.style.display='block'">
+    <span style="display:none;color:rgba(255,255,255,.45);font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;letter-spacing:.18em">HOUSE OF OM</span>
+  </a>
+  <div class="footer-row">
+    <div class="footer-links">
+      <a href="https://houseofom.com/programs" target="_blank" rel="noopener">Programs</a>
+      <a href="https://houseofom.com/about" target="_blank" rel="noopener">About</a>
+      <a href="https://houseofom.com/blog" target="_blank" rel="noopener">Blog</a>
+      <a href="https://houseofom.com" target="_blank" rel="noopener">Contact</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-socials">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2025 House of Om &nbsp;·&nbsp; Live. Love. Inspire. &nbsp;·&nbsp; All content curated with care for our alumni community</p>
+</footer>
+
+<script>
+// ─── CURSOR
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
+(function animRing(){rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,input,.practice-card,.resource-card,.location-card,.hero-scroll').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
+
+// ─── SCROLL PROGRESS
+const prog = document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.transform = `scaleX(${window.scrollY/h})`;
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('sc', window.scrollY > 60);
+}, {passive:true});
+
+// Hero bg is fixed — no parallax on scroll
+
+// ─── SCROLL REVEAL
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
+  });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el=>revealObserver.observe(el));
+
+// ─── TABS
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+  document.querySelectorAll('#tab-'+name+' .resource-card').forEach((card,i)=>{
+    card.style.opacity='0'; card.style.transform='translateY(20px)';
+    setTimeout(()=>{ card.style.transition='opacity .5s ease, transform .5s ease'; card.style.opacity='1'; card.style.transform='translateY(0)'; }, i*60);
+  });
+}
+
+// ─── EMAIL SIGNUP
+function handleSignup(e) {
+  e.preventDefault();
+  const wrap = document.getElementById('signup-form-wrap');
+  const success = document.getElementById('signup-success');
+  wrap.style.transition = 'opacity .4s ease';
+  wrap.style.opacity = '0';
+  setTimeout(()=>{ wrap.style.display='none'; success.classList.add('show'); }, 400);
+}
+
+// ─── LOCATION CARDS DRAG SCROLL
+const track = document.querySelector('.locations-track-wrap');
+let isDown=false, startX, scrollLeft;
+track.addEventListener('mousedown', e=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft;track.style.cursor='grabbing';});
+track.addEventListener('mouseleave',()=>{isDown=false;track.style.cursor='';});
+track.addEventListener('mouseup',()=>{isDown=false;track.style.cursor='';});
+track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-track.offsetLeft;const walk=(x-startX)*1.4;track.scrollLeft=scrollLeft-walk;});
+
+// ─── HERO BG REVEAL
+document.querySelector('.hero-bg').style.transition='transform 8s ease';
+
+// ─── CINEMA BAND PARALLAX
+const cinemaBand = document.getElementById('cinema-band');
+if(cinemaBand){
+  window.addEventListener('scroll',()=>{
+    const rect = cinemaBand.parentElement.getBoundingClientRect();
+    if(rect.bottom > 0 && rect.top < window.innerHeight){
+      const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      cinemaBand.style.transform = `scale(1.04) translateY(${(pct - 0.5) * 40}px)`;
+    }
+  },{passive:true});
+}
+</script>
+</body>
+</html>
