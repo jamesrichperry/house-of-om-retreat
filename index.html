@@ -275,7 +275,7 @@ footer{background:var(--dark);padding:52px 52px 36px;display:flex;flex-direction
 
 /* ─── PHOTO MOSAIC ─── */
 #mosaic{padding:0;overflow:hidden;background:var(--dark)}
-.mosaic-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:300px 260px 240px;gap:3px}
+.mosaic-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-auto-rows:270px;gap:3px}
 .mosaic-item{position:relative;overflow:hidden;background:var(--dark)}
 .mosaic-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.25,.46,.45,.94),opacity .7s ease;opacity:.9}
 .mosaic-item:hover img{transform:scale(1.06);opacity:1}
@@ -285,7 +285,7 @@ footer{background:var(--dark);padding:52px 52px 36px;display:flex;flex-direction
 .mosaic-caption{position:absolute;bottom:16px;left:16px;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;font-family:'Montserrat',sans-serif;font-weight:400}
 .mosaic-item:hover .mosaic-caption{opacity:1;transform:translateY(0)}
 @media(max-width:900px){
-  .mosaic-grid{grid-template-columns:1fr 1fr 1fr;grid-template-rows:140px 140px 140px}
+  .mosaic-grid{grid-template-columns:1fr 1fr 1fr;grid-auto-rows:130px}
   .mosaic-tall{grid-row:auto}
   .mosaic-item{min-height:unset}
 }
